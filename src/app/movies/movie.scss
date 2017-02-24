@@ -1,0 +1,24 @@
+.movie {
+  padding-top: 10px;
+  margin-bottom: 15px;
+}
+.logo {
+  width: 5rem;
+  height: 5rem;
+  float: right;
+  margin: 0 0 .5rem .5rem;
+}
+h3 {
+  fontSize: 1.5rem;
+  margin: 0 0 2rem 0;
+  font-weight: bold
+}
+.row {
+  border-bottom: lightgray solid thin;
+  padding-bottom: 15px;
+}
+.movieTitle {
+  font-size: 20px;
+  cursor: pointer;
+  color: cadetblue;
+}
