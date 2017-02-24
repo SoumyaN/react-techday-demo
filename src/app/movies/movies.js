@@ -17,21 +17,6 @@ const styles = {
 };
 
 export class Movies extends Component {
-  constructor() {
-    super();
-    this.state = {
-      selectedMovie: {}
-    };
-    this.handleClickTitle = this.handleClickTitle.bind(this);
-  }
-
-  handleClickTitle(movieTitle) {
-    const movie = this.props.movies.filter(movie => {
-      return movie.original_title === movieTitle;
-    })[0];
-    this.setState({selectedMovie: movie});
-    window.scrollTo(0, document.body.scrollHeight);
-  }
 
   render() {
     return (
@@ -41,28 +26,13 @@ export class Movies extends Component {
         </h2>
         <div>
           {this.props.movies && this.props.movies.map((movie, i) => {
-            return <Movie key={i} movie={movie} onClickTitle={this.handleClickTitle}/>;
+            return <Movie key={i} movie={movie}/>;
           })}
         </div>
-        <InfoPane selectedMovie={this.state.selectedMovie}>Show pane here</InfoPane>
       </div>
     );
   }
 }
-
-const InfoPane = props => {
-  return (
-    <div style={styles.infoPane}>
-      <div>Original Title: {props.selectedMovie.original_title}</div>
-      <div>Overview: {props.selectedMovie.overview}</div>
-      <div>Popularity: {props.selectedMovie.popularity}</div>
-    </div>
-  );
-};
-
-InfoPane.propTypes = {
-  selectedMovie: React.PropTypes.object
-};
 
 Movies.propTypes = {
   movies: React.PropTypes.array
